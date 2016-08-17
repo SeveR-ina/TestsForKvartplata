@@ -18,10 +18,9 @@ public class MainPage {
     public void setup(){
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("http://autoqa.pp.ua/wp-login.php");
+        driver.get("https://pay.kvartplata.ru/pk/login.action");
     }
-
     @Test(priority=0)
     public void test_Home_Page_Appear_Correct(){
-        }
+    }
 }
