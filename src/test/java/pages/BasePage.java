@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * Created by rchepkunova on 18.08.2016.
  */
 public abstract class BasePage {
-    private final WebDriver driver;
+    WebDriver driver;
 
     private final static Long DEFAULT_TIMEOUT_IN_SECONDS = 10L;
 

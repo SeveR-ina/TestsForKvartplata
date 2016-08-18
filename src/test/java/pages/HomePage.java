@@ -13,6 +13,9 @@ public class HomePage extends BasePage {
     @FindBy(className = "entrance")
     private WebElement registerLink;
 
+    @FindBy(className = "fancybox-iframe")
+    private WebElement registerIFrame;
+
     @FindBy(id = "phone")
     private WebElement phoneField;
 
@@ -25,13 +28,38 @@ public class HomePage extends BasePage {
         return registerLink.isDisplayed();
     }
 
-    public boolean isRegisterPopUpVisible() {
+    public void callRegisterPopup() {
         registerLink.click();
+    }
+
+    public void goToIFrame(){
+        driver.switchTo().defaultContent();
+        driver.switchTo().frame(registerIFrame);
+    }
+
+    public void leaveIFrame(){
+        driver.switchTo().defaultContent();
+    }
+
+    public boolean isRegisterPopUpVisible() {
         try {
             waitForVisibilityOf(phoneField, 20);
             return true;
         } catch (TimeoutException e) {
             return false;
+        }
+    }
+
+    public void typeIntoField(WebElement field, String key){
+        field.click();
+        field.clear();
+        field.sendKeys(key);
+    }
+
+    public void fillTheRegistrationForm(){
+        goToIFrame();
+        if (isRegisterPopUpVisible()){
+
         }
     }
 }

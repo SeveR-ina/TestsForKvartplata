@@ -28,6 +28,8 @@ public class HomePageTest extends BeforeTests {
 
     @Test(dependsOnMethods = { "isHomePageVisibleTest" })
     public void getRegisterFormTest() {
+        homePage.callRegisterPopup();
+
         assertTrue(homePage.isRegisterPopUpVisible());
     }
 }
